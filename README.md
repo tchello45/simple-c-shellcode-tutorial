@@ -84,6 +84,11 @@ unsigned char shellcode[] = {
     0x0f, 0x05};
 ```
 
+**Attention:**
+For bigger payloads, you don't want to manually extract the shellcode bytes like this. Instead, consider using the [help.py](help.py) script to automate the process.
+1. Run `objcopy -O binary -j .text a.out shellcode.bin` to create a binary file containing the shellcode.
+2. Run `python3 help.py shellcode.bin` to generate the C array.
+
 ## Integrating the shellcode into a C program
 
 ```c
